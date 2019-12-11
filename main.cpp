@@ -2,8 +2,6 @@
 // Created by Mike on 12/11/2019.
 //
 
-#pragma once
-
 #include <cstdint>
 #include <type_traits>
 #include <iostream>
@@ -98,11 +96,10 @@ struct MakeArrayFromSequenceImpl<U32Sequence<numbers...>> {
     }
 };
 
-
 template<size_t size>
 static constexpr auto array_prefix_sum_impl(std::array<uint32_t, size> array, size_t index) noexcept {
     auto sum = 0u;
-    for (auto i = 0ul; i <= index; i++) {
+    for (auto i = 0ul; i < index; i++) {
         sum += array[i];
     }
     return sum;
