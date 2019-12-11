@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 if (MSVC)
     add_definitions(/constexpr:steps4194304)
-else ()
+elseif (CMAKE_CXX_COMPILER_ID MATCHES Clang)
     add_definitions(-fconstexpr-steps=4194304)
 endif ()
 
